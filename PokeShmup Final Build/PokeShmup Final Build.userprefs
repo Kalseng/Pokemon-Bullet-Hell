@@ -1,13 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\victiniPatterns.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/gengarPatterns.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="63" Column="1" />
-      <File FileName="Assets\Scripts\victiniPatterns.cs" Line="149" Column="41" />
-      <File FileName="Assets\vCreateMover.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Mover.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\enemyDeath.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\LogicOfTheGame.cs" Line="57" Column="65" />
+      <File FileName="Assets/Scripts/gengarPatterns.cs" Line="54" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
