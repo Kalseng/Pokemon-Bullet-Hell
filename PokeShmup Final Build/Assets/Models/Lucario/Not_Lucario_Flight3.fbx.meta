@@ -1,0 +1,346 @@
+fileFormatVersion: 2
+guid: cdf9e192849e8a04a9a62bdcb45c3ed4
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: AnimationRig
+    100002: Arm1
+    100004: Arm2
+    100006: Bicep1
+    100008: Bicep2
+    100010: group1
+    100012: HandSpike1
+    100014: HandSpike2
+    100016: Head_BS
+    100018: Heart_to_Feet
+    100020: Inner_Plate1
+    100022: Inner_Plate2
+    100024: joint17
+    100026: joint19
+    100028: joint23
+    100030: joint24
+    100032: joint25
+    100034: joint26
+    100036: joint3
+    100038: joint33
+    100040: joint34
+    100042: joint35
+    100044: joint36
+    100046: joint37
+    100048: joint38
+    100050: joint39
+    100052: joint4
+    100054: joint40
+    100056: joint44
+    100058: joint5
+    100060: joint51
+    100062: joint52
+    100064: joint53
+    100066: joint54
+    100068: joint55
+    100070: joint56
+    100072: joint6
+    100074: joint7
+    100076: Left1
+    100078: Left2
+    100080: Left_Interwing
+    100082: Left_Wing
+    100084: LElbow1
+    100086: LElbow2
+    100088: LHand1
+    100090: LHand2
+    100092: LShoulder1
+    100094: LShoulder2
+    100096: Middle1
+    100098: Middle2
+    100100: Nose
+    100102: //RootNode
+    100104: Outer_Plate1
+    100106: Outer_Plate2
+    100108: polygon0_mat1
+    100110: polygon1_mat2
+    100112: Right1
+    100114: Right2
+    100116: Right_Ear_Base
+    100118: Right_Ear_Base1
+    100120: Right_Interwing
+    100122: Right_Wing
+    100124: SpikeChestPiece
+    100126: Tail
+    400000: AnimationRig
+    400002: Arm1
+    400004: Arm2
+    400006: Bicep1
+    400008: Bicep2
+    400010: group1
+    400012: HandSpike1
+    400014: HandSpike2
+    400016: Head_BS
+    400018: Heart_to_Feet
+    400020: Inner_Plate1
+    400022: Inner_Plate2
+    400024: joint17
+    400026: joint19
+    400028: joint23
+    400030: joint24
+    400032: joint25
+    400034: joint26
+    400036: joint3
+    400038: joint33
+    400040: joint34
+    400042: joint35
+    400044: joint36
+    400046: joint37
+    400048: joint38
+    400050: joint39
+    400052: joint4
+    400054: joint40
+    400056: joint44
+    400058: joint5
+    400060: joint51
+    400062: joint52
+    400064: joint53
+    400066: joint54
+    400068: joint55
+    400070: joint56
+    400072: joint6
+    400074: joint7
+    400076: Left1
+    400078: Left2
+    400080: Left_Interwing
+    400082: Left_Wing
+    400084: LElbow1
+    400086: LElbow2
+    400088: LHand1
+    400090: LHand2
+    400092: LShoulder1
+    400094: LShoulder2
+    400096: Middle1
+    400098: Middle2
+    400100: Nose
+    400102: //RootNode
+    400104: Outer_Plate1
+    400106: Outer_Plate2
+    400108: polygon0_mat1
+    400110: polygon1_mat2
+    400112: Right1
+    400114: Right2
+    400116: Right_Ear_Base
+    400118: Right_Ear_Base1
+    400120: Right_Interwing
+    400122: Right_Wing
+    400124: SpikeChestPiece
+    400126: Tail
+    4300000: polygon0_mat1
+    4300002: polygon1_mat2
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: polygon0_mat1
+    13700002: polygon1_mat2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AnimationRig
+        weight: 1
+      - path: AnimationRig/Head_BS
+        weight: 1
+      - path: AnimationRig/Head_BS/Left_Interwing
+        weight: 1
+      - path: AnimationRig/Head_BS/Left_Interwing/joint53
+        weight: 1
+      - path: AnimationRig/Head_BS/Left_Interwing/joint53/joint19
+        weight: 1
+      - path: AnimationRig/Head_BS/Left_Wing
+        weight: 1
+      - path: AnimationRig/Head_BS/Left_Wing/joint17
+        weight: 1
+      - path: AnimationRig/Head_BS/Left_Wing/joint17/joint25
+        weight: 1
+      - path: AnimationRig/Head_BS/Nose
+        weight: 1
+      - path: AnimationRig/Head_BS/Right_Ear_Base
+        weight: 1
+      - path: AnimationRig/Head_BS/Right_Ear_Base/joint44
+        weight: 1
+      - path: AnimationRig/Head_BS/Right_Ear_Base1
+        weight: 1
+      - path: AnimationRig/Head_BS/Right_Ear_Base1/joint56
+        weight: 1
+      - path: AnimationRig/Head_BS/Right_Interwing
+        weight: 1
+      - path: AnimationRig/Head_BS/Right_Interwing/joint54
+        weight: 1
+      - path: AnimationRig/Head_BS/Right_Interwing/joint54/joint55
+        weight: 1
+      - path: AnimationRig/Head_BS/Right_Wing
+        weight: 1
+      - path: AnimationRig/Head_BS/Right_Wing/joint39
+        weight: 1
+      - path: AnimationRig/Head_BS/Right_Wing/joint39/joint40
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/joint3
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/joint3/joint4
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/joint3/joint4/joint5
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/joint3/joint4/joint5/joint6
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/joint3/joint4/joint5/joint6/joint7
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/joint3/joint4/joint5/joint6/joint7/joint26
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/joint33
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/joint33/joint34
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/joint33/joint34/joint35
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/joint33/joint34/joint35/joint36
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/joint33/joint34/joint35/joint36/joint37
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/joint33/joint34/joint35/joint36/joint37/joint38
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/Tail
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/Tail/joint51
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/Tail/joint51/joint52
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/Tail/joint51/joint52/joint23
+        weight: 1
+      - path: AnimationRig/Heart_to_Feet/Tail/joint51/joint52/joint23/joint24
+        weight: 1
+      - path: AnimationRig/LShoulder1
+        weight: 1
+      - path: AnimationRig/LShoulder1/Inner_Plate1
+        weight: 1
+      - path: AnimationRig/LShoulder1/Inner_Plate1/Outer_Plate1
+        weight: 1
+      - path: AnimationRig/LShoulder1/Inner_Plate1/Outer_Plate1/Bicep1
+        weight: 1
+      - path: AnimationRig/LShoulder1/Inner_Plate1/Outer_Plate1/Bicep1/LElbow1
+        weight: 1
+      - path: AnimationRig/LShoulder1/Inner_Plate1/Outer_Plate1/Bicep1/LElbow1/Arm1
+        weight: 1
+      - path: AnimationRig/LShoulder1/Inner_Plate1/Outer_Plate1/Bicep1/LElbow1/Arm1/LHand1
+        weight: 1
+      - path: AnimationRig/LShoulder1/Inner_Plate1/Outer_Plate1/Bicep1/LElbow1/Arm1/LHand1/HandSpike1
+        weight: 1
+      - path: AnimationRig/LShoulder1/Inner_Plate1/Outer_Plate1/Bicep1/LElbow1/Arm1/LHand1/Left1
+        weight: 1
+      - path: AnimationRig/LShoulder1/Inner_Plate1/Outer_Plate1/Bicep1/LElbow1/Arm1/LHand1/Middle1
+        weight: 1
+      - path: AnimationRig/LShoulder1/Inner_Plate1/Outer_Plate1/Bicep1/LElbow1/Arm1/LHand1/Right1
+        weight: 1
+      - path: AnimationRig/LShoulder2
+        weight: 1
+      - path: AnimationRig/LShoulder2/Inner_Plate2
+        weight: 1
+      - path: AnimationRig/LShoulder2/Inner_Plate2/Outer_Plate2
+        weight: 1
+      - path: AnimationRig/LShoulder2/Inner_Plate2/Outer_Plate2/Bicep2
+        weight: 1
+      - path: AnimationRig/LShoulder2/Inner_Plate2/Outer_Plate2/Bicep2/LElbow2
+        weight: 1
+      - path: AnimationRig/LShoulder2/Inner_Plate2/Outer_Plate2/Bicep2/LElbow2/Arm2
+        weight: 1
+      - path: AnimationRig/LShoulder2/Inner_Plate2/Outer_Plate2/Bicep2/LElbow2/Arm2/LHand2
+        weight: 1
+      - path: AnimationRig/LShoulder2/Inner_Plate2/Outer_Plate2/Bicep2/LElbow2/Arm2/LHand2/HandSpike2
+        weight: 1
+      - path: AnimationRig/LShoulder2/Inner_Plate2/Outer_Plate2/Bicep2/LElbow2/Arm2/LHand2/Left2
+        weight: 1
+      - path: AnimationRig/LShoulder2/Inner_Plate2/Outer_Plate2/Bicep2/LElbow2/Arm2/LHand2/Middle2
+        weight: 1
+      - path: AnimationRig/LShoulder2/Inner_Plate2/Outer_Plate2/Bicep2/LElbow2/Arm2/LHand2/Right2
+        weight: 1
+      - path: AnimationRig/SpikeChestPiece
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/polygon0_mat1
+        weight: 1
+      - path: group1/polygon1_mat2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
