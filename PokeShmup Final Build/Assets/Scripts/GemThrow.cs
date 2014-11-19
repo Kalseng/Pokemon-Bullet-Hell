@@ -11,6 +11,8 @@ public class GemThrow : MonoBehaviour {
 	void Start () {
 		InvokeRepeating ("GemSpawn", 0.1f, 2.0f);
 		InvokeRepeating ("GemSpawn", 0.5f, 2.0f);
+		InvokeRepeating ("GemSpawn", 0.9f, 2.0f);
+
 		bulletFolder = GameObject.Find ("Bullets");
 		
 	}

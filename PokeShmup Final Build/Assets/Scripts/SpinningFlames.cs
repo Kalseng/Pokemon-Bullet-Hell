@@ -12,7 +12,8 @@ public class SpinningFlames : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		bulletFolder = GameObject.Find ("Bullets");
-		InvokeRepeating ("SpinningFlamesSpawn", 0.2f, 2.0f);
+		InvokeRepeating ("SpinningFlamesSpawn", 0.2f, 2.2f);
+		InvokeRepeating ("SpinningFlamesSpawn", 0.7f, 2.2f);
 		
 	}
 	

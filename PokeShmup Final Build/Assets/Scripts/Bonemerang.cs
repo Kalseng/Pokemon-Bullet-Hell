@@ -11,8 +11,10 @@ public class Bonemerang : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		bulletFolder = GameObject.Find ("Bullets");
-		InvokeRepeating ("BoneSpawn", 0.05f, 0.5f);
-		InvokeRepeating ("BoneSpawn", 0.1f, 0.5f);
+		InvokeRepeating ("BoneSpawn", 0.05f, 1.0f);
+		InvokeRepeating ("BoneSpawn", 0.15f, 1.0f);
+		InvokeRepeating ("BoneSpawn", 0.25f, 1.0f);
+		InvokeRepeating ("BoneSpawn", 0.35f, 1.0f);
 		
 	}
 	

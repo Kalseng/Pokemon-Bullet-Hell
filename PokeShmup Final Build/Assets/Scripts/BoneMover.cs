@@ -16,7 +16,7 @@ public class BoneMover : MonoBehaviour {
 	void Update() {
 
 
-		rigidbody.velocity = new Vector3(startX+(Mathf.Sin(Time.time)*110), transform.forward.y, startZ+(Mathf.Cos(Time.time)*110));
+		rigidbody.velocity = new Vector3(startX+(Mathf.Sin(Time.time)*250), transform.forward.y, startZ+(Mathf.Cos(Time.time))*250);
 		
 	}
 	
