@@ -86,6 +86,8 @@
      <Compile Include="Assets\Scripts\vCreateMover.cs" />
      <Compile Include="Assets\Scripts\victiniPatterns.cs" />
      <Compile Include="Assets\Scripts\voltorbSpawner.cs" />
+     <Compile Include="Assets\ShadowBall.cs" />
+     <Compile Include="Assets\ShadowBallMover.cs" />
      <None Include="Assets\Models\Blastoise\HELP AND README.txt" />
      <None Include="Assets\Models\Lucario\HELP AND README.txt" />
      <None Include="Assets\Models\Togekiss\HELP AND README.txt" />

@@ -4,8 +4,9 @@ using System.Collections;
 public class gengarPatterns : MonoBehaviour {
 	
 	private GameObject searingShotScript;
-	public GameObject eyes1, eyes2, mouths;
+	public GameObject eyes1, eyes2, mouths, shadowBall1;
 	public Transform eyeSpawn1, eyeSpawn2, mouthSpawn;
+	public Transform sb1, sb2, sb3, sb4;
 	public GameObject explosion, bulletExplosion;
 	
 	
@@ -56,13 +57,50 @@ public class gengarPatterns : MonoBehaviour {
 	
 	
 	void gengarAttacks(){
-		InvokeRepeating ("scareyFace", 2.5f, 5.0f);
+		InvokeRepeating ("scareyFace", 1.5f, 10.0f);
+		InvokeRepeating ("shadowBall", 3.5f, 10.0f);
+		InvokeRepeating ("shadowBall", 6.5f, 10.0f);
 				
 
 	}
 	
-	void dreamEater(){
+	void shadowBall(){
+		int randomNumber = Random.Range (1, 4);
 
+		if (randomNumber == 1) {
+			Transform shbl1 = ((GameObject)Instantiate (shadowBall1, sb2.position, sb2.rotation)).transform;
+			shbl1.parent = bulletFolder.transform;
+			Transform shbl2 = ((GameObject)Instantiate (shadowBall1, sb3.position, sb3.rotation)).transform;
+			shbl2.parent = bulletFolder.transform;
+			Transform shbl3 = ((GameObject)Instantiate (shadowBall1, sb4.position, sb4.rotation)).transform;
+			shbl3.parent = bulletFolder.transform;
+		}
+		if (randomNumber == 2) {
+			Transform shbl1 = ((GameObject)Instantiate (shadowBall1, sb1.position, sb1.rotation)).transform;
+			shbl1.parent = bulletFolder.transform;
+			Transform shbl2 = ((GameObject)Instantiate (shadowBall1, sb3.position, sb3.rotation)).transform;
+			shbl2.parent = bulletFolder.transform;
+			Transform shbl3 = ((GameObject)Instantiate (shadowBall1, sb4.position, sb4.rotation)).transform;
+			shbl3.parent = bulletFolder.transform;
+		}
+		if (randomNumber == 3) {
+			Transform shbl1 = ((GameObject)Instantiate (shadowBall1, sb2.position, sb2.rotation)).transform;
+			shbl1.parent = bulletFolder.transform;
+			Transform shbl2 = ((GameObject)Instantiate (shadowBall1, sb1.position, sb1.rotation)).transform;
+			shbl2.parent = bulletFolder.transform;
+			Transform shbl3 = ((GameObject)Instantiate (shadowBall1, sb4.position, sb4.rotation)).transform;
+			shbl3.parent = bulletFolder.transform;
+		}
+		if (randomNumber == 4) {
+			Transform shbl1 = ((GameObject)Instantiate (shadowBall1, sb2.position, sb2.rotation)).transform;
+			shbl1.parent = bulletFolder.transform;
+			Transform shbl2 = ((GameObject)Instantiate (shadowBall1, sb3.position, sb3.rotation)).transform;
+			shbl2.parent = bulletFolder.transform;
+			Transform shbl3 = ((GameObject)Instantiate (shadowBall1, sb1.position, sb1.rotation)).transform;
+			shbl3.parent = bulletFolder.transform;
+		}
+		
+		
 	}
 	
 	void scareyFace(){
