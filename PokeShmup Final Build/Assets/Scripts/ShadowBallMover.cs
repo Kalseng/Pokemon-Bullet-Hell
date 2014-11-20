@@ -13,8 +13,8 @@ public class ShadowBallMover : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	//	if((Time.time-startTime)>2.0)
-			//rigidbody.velocity = transform.forward * speed;
+	if((Time.time-startTime)>2.0)
+		rigidbody.velocity = transform.forward * speed;
 	
 	}
 }
