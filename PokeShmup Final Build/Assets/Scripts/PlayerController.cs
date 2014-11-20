@@ -54,15 +54,14 @@ public class PlayerController : MonoBehaviour
 				float moveVertical = Input.GetAxis ("Vertical");
 		
 				Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-		if(Input.GetButton ("Fire3")){
-			GameObject.Find ("hitbox").renderer.enabled = true;
-			rigidbody.velocity = movement * slowSpeed;
-		}
-		else{
+		if (Input.GetButton ("Fire3")) {
+						GameObject.Find ("hitbox").renderer.enabled = true;
+						rigidbody.velocity = movement * slowSpeed;
+				} else {
 			
-			GameObject.Find ("hitbox").renderer.enabled = false;
-				rigidbody.velocity = movement * speed;
-		}
+						GameObject.Find ("hitbox").renderer.enabled = false;
+			rigidbody.velocity = movement * speed;
+				}
 				rigidbody.position = new Vector3 
 			(
 				Mathf.Clamp (rigidbody.position.x, boundary.xMin, boundary.xMax), 

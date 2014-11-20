@@ -53,25 +53,41 @@ public class victiniPatterns : MonoBehaviour {
 		}
 
 	}
+
+	/*
+	 * 
+			Debug.Log ("Condition 1 activated");
+						searingShot ();
+	 * 
+	 * 
+	 * 
+	 * Debug.Log ("Condition 2 activated");
+						part2active = false;
+						if (vCreatePart1Active == false) {
+								controller.ClearBullets (bulletFolder.transform);
+								CancelInvoke ();
+								vCreate ();
+	 */
 	
 	// Update is called once per frame
 	void Update () {
 
 				if (health >= 667) {
-			Debug.Log ("Condition 1 activated");
-						searingShot ();
-				}
-				if (health <= 666 && health >= 334) {
-						Debug.Log ("Condition 2 activated");
-						part2active = false;
+						Debug.Log ("Condition 1 activated");
 						if (vCreatePart1Active == false) {
 								controller.ClearBullets (bulletFolder.transform);
 								CancelInvoke ();
 								vCreate ();
 						}
 				}
+				if (health <= 666 && health >= 334) {
+						Debug.Log ("Condition 2 activated");
+
+						searingShot ();
+				}
 				if (health <= 333) {
 						Debug.Log ("Condition 3 activated");
+						part2active = false;
 						if (flamethrowerPart1Active == false) {
 								CancelInvoke ();
 								controller.ClearBullets (bulletFolder.transform);
@@ -86,8 +102,9 @@ public class victiniPatterns : MonoBehaviour {
 				if (part1active == false && part2active == false) {
 						currentTime = Time.time;
 						CancelInvoke ();
-						InvokeRepeating ("searingShotPart1", 0.0f, 0.08f);
 						part1active = true;
+						InvokeRepeating ("searingShotPart1", 0.0f, 0.08f);
+						Debug.Log ("I'm being called");
 				}
 
 				if (Time.time - currentTime >= 3 && part1active) {
