@@ -107,7 +107,7 @@ public class victiniPatterns : MonoBehaviour {
 						Debug.Log ("I'm being called");
 				}
 
-				if (Time.time - currentTime >= 3 && part1active) {
+				if (Time.time - currentTime >= 2 && part1active) {
 						CancelInvoke ();
 						part2active = true;
 				}
@@ -206,13 +206,15 @@ public class victiniPatterns : MonoBehaviour {
 						if (health <= 0) {
 								if (!objectDestroyed) {
 										controller.ClearBullets (bulletFolder.transform);
+										CancelInvoke ();
 										controller.AddScore (pointsWorth);
 										Instantiate (explosion, transform.position, transform.rotation);
+										GameObject.Destroy (this);
 										objectDestroyed = true;
-										controller.setLevel1Over();
+										controller.setLevel1Over ();
 										//Application.LoadLevel ("Level 2");
 								}
 						}
 				}
 		}
-			}
+}
