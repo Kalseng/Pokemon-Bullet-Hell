@@ -131,7 +131,7 @@ public class LogicOfTheGame : MonoBehaviour {
 	
 		}
 
-	public static Transform ClearBullets(Transform transform){
+	public Transform ClearBullets(Transform transform){
 		foreach (Transform child in transform) {
 			GameObject.Destroy (child.gameObject);
 		}

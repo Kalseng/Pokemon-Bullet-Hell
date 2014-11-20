@@ -9,6 +9,7 @@ public class victiniPatterns : MonoBehaviour {
 	public GameObject searingShotSpawn1, searingShotSpawn2;
 	public GameObject explosion, bulletExplosion;
 	public GameObject vCreateSpawns, vCreateBullet;
+	public GameObject flamethrowerObject, flamethrowerSpawn1, flamethrowerSpawn2;
 
 
 	public int pointsWorth;
@@ -20,14 +21,22 @@ public class victiniPatterns : MonoBehaviour {
 	private int health = 1000;
 
 	//For searingShot
-
 	private float currentTime;
 	private bool part1active, part2active;
+
+	//for vCreate
 	private bool vCreatePart1Active, vCreatePart2Active;
 	private int timesInvoked;
 
+	//for flamethrower
+	private bool flamethrowerPart1Active;
+	private Transform thisTransform;
+
+	public float smoothTime;
+
 	// Use this for initialization
 	void Start () {
+		thisTransform = this.transform;
 
 		currentTime = Time.time;
 
@@ -57,15 +66,24 @@ public class victiniPatterns : MonoBehaviour {
 						Debug.Log ("Condition 2 activated");
 						part2active = false;
 						if (vCreatePart1Active == false) {
+								controller.ClearBullets (bulletFolder.transform);
 								CancelInvoke ();
 								vCreate ();
 						}
 				}
-				if (health <= 500 && health >= 250) {
+				if (health < 500 && health >= 250) {
 						Debug.Log ("Condition 3 activated");
-						CancelInvoke ();
+						if (flamethrowerPart1Active == false) {
+								CancelInvoke ();
+								controller.ClearBullets (bulletFolder.transform);
+								flamethrower ();
+						}
 				}
-	
+				if (health < 250) {
+						Debug.Log ("Condition 4 actiated");
+						CancelInvoke ();
+		
+				}
 		}
 
 
@@ -111,7 +129,7 @@ public class victiniPatterns : MonoBehaviour {
 		if (vCreatePart1Active == false) {
 			Debug.Log ("vCreate called");
 			timesInvoked = 0;
-			InvokeRepeating ("CreateV", 0, 5.0f);
+			InvokeRepeating ("CreateV", 0.5f, 5.0f);
 			vCreatePart1Active = true;
 		}
 
@@ -146,6 +164,28 @@ public class victiniPatterns : MonoBehaviour {
 	}
 
 	
+	void flamethrower(){
+
+		InvokeRepeating ("spawnFlame", 0.0f, 6.0f);
+		InvokeRepeating ("spawnFlame2", 2.0f, 6.0f);
+		flamethrowerPart1Active = true;
+
+		}
+
+	void spawnFlame(){
+
+				Transform t = ((GameObject)(Instantiate (flamethrowerObject, flamethrowerSpawn1.transform.position, flamethrowerSpawn1.transform.rotation))).transform;
+				t.parent = bulletFolder.transform;
+		}
+
+
+
+	void spawnFlame2(){
+		
+		Transform t = ((GameObject)(Instantiate (flamethrowerObject, flamethrowerSpawn2.transform.position, flamethrowerSpawn2.transform.rotation))).transform;
+				t.parent = bulletFolder.transform;
+		}
+
 	void OnTriggerEnter(Collider collider){
 				if (collider.gameObject.tag == "Player Bullets") {
 						Destroy (collider.gameObject);
@@ -162,5 +202,5 @@ public class victiniPatterns : MonoBehaviour {
 								}
 						}
 				}
-	}
-}
+		}
+			}
