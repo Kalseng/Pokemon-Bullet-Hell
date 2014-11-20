@@ -191,7 +191,8 @@ public class victiniPatterns : MonoBehaviour {
 										controller.AddScore (pointsWorth);
 										Instantiate (explosion, transform.position, transform.rotation);
 										objectDestroyed = true;
-										Application.LoadLevel ("Level 2");
+										controller.setLevel1Over();
+										//Application.LoadLevel ("Level 2");
 								}
 						}
 				}

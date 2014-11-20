@@ -9,39 +9,44 @@ public class LogicOfTheGame : MonoBehaviour {
 	public GUIText powerupText;
 	public GameObject EnemySpawner;
 
-	private int score;
-	public int lives;
-	public float powerUp;
+	public static int score;
+	public static int lives;
+	public static float powerUp;
 
-	private static bool gameOver;
+	private static bool gameOver, level1Over;
 
 	private GameObject bullets;
 
 	//Marcus: These are variables used for fading in
 	//and out upon achieving a Game Over. Not sure 
 	//where to put this.
-	public GameObject fader;
+	public GameObject fader, fader2;
 	public float speed;
-	private Color faderColor;
+	private Color faderColor, faderColor2;
 
 	// Use this for initialization
 
 
 	void Start () {
-		powerUp = 0.0f;
-				bullets = GameObject.Find ("Bullets");
-				score = 0;
+		if (Application.loadedLevelName == "Level 1") {
+						powerUp = 0.0f;
+						
+						score = 0;
+				}
+		bullets = GameObject.Find ("Bullets");
 				if (lives == 0) {
 						lives = 100;
 				}gameOver = false;
+		level1Over = false;    
 				scoreText.text = "Score: " + score;
 				livesText.text = "Lives: " + lives;
-
+		
 				//Marcus: Sorry, don't know where to put this,
 				//but this is for the fade in and fade out effects
 				//upon achieving a Game Over.
 
 				faderColor = fader.renderer.material.color;
+				faderColor2 = fader2.renderer.material.color;
 	}
 	
 	// Update is called once per frame
@@ -50,14 +55,22 @@ public class LogicOfTheGame : MonoBehaviour {
 				//Marcus: SORRY SAMANTHA I DON'T KNOW WHERE TO 
 				//PUT THIS CODE PLS FORGIVE ME.
 
-				if (Application.loadedLevelName == "Level 1") {
+				
+			
+			if (Application.loadedLevelName == "Level 1") {
 			
 						if (gameOver && faderColor.a + speed >= 0 && faderColor.a + speed <= 255) {
 								faderColor.a += speed;
-								fader.renderer.material.SetColor ("_Color", faderColor);}
+								fader.renderer.material.SetColor ("_Color", faderColor2);}
+						if (level1Over && faderColor2.a + speed >= 0 && faderColor2.a + speed <= 255) {
+								faderColor2.a += speed;
+								fader2.renderer.material.SetColor ("_Color", faderColor2);}
 			
 						if ((fader.renderer.material.GetColor ("_Color").a + speed) >= 1.0f) {
 								Application.LoadLevel ("GameOver");
+			}
+						if ((fader2.renderer.material.GetColor ("_Color").a + speed) >= 2.0f) {
+								Application.LoadLevel ("Level 2");
 						}
 				}
 
@@ -152,6 +165,11 @@ public class LogicOfTheGame : MonoBehaviour {
 	public float getPowerup(){
 		float returnValue = powerUp;
 		return returnValue;
+	}
+
+	public void setLevel1Over(){
+		level1Over=true;
+	
 	}
 
 	public void changePowerup(float change){
