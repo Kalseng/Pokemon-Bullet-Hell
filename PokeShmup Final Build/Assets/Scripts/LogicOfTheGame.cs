@@ -173,6 +173,8 @@ public class LogicOfTheGame : MonoBehaviour {
 	}
 
 	public void changePowerup(float change){
+		if ((powerUp + change <= 4.0f) && (powerUp + change >= 0.0f)){
 		powerUp += change;
+		}
 	}
 }
