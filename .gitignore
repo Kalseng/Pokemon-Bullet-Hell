@@ -35,5 +35,12 @@ PokeShmup Final Build/Library/ScriptAssemblies/Assembly-CSharp.dll
 *.sln
 PokeShmup Final Build/Library/metadata/c4/c4f259736ed18c84aa33ad2bd4a84a77
 *.userprefs
+<<<<<<< Updated upstream
 PokeShmup Final Build/Library/assetDatabase3
 PokeShmup Final Build/Library/CurrentLayout.dwlt
+=======
+
+*.asset
+
+*.dwlt
+>>>>>>> Stashed changes

@@ -35,7 +35,7 @@ public class LogicOfTheGame : MonoBehaviour {
 				}
 		bullets = GameObject.Find ("Bullets");
 				if (lives == 0) {
-						lives = 100;
+						lives = 3;
 				}gameOver = false;
 		level1Over = false;    
 				scoreText.text = "Score: " + score;

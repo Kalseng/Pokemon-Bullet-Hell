@@ -17,12 +17,17 @@ public class voltorbSpawner : MonoBehaviour {
 	private bool score200, score400, score600, score800, score1000;
 	private bool victiniSpawned;
 	private GameObject enemyFolder;
+	private int scoreplus;
 
 	public GUIText win;
 
 	// Use this for initialization
 	void Start () {
-
+		if (Application.loadedLevelName == "Level 1") {
+						scoreplus = 0;
+				} else {
+						scoreplus = 2200;
+				}
 				enemyFolder = GameObject.Find ("Enemy Folder");
 
 				InvokeRepeating ("spawn", 3.0f, 6f);
@@ -46,22 +51,23 @@ public class voltorbSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-				if (controller.getScore () >= 200 && controller.getScore () < 400 && !score200) {
+
+		if (controller.getScore () >= 200+scoreplus && controller.getScore () < 400+scoreplus && !score200) {
 						score200 = true;
 						InvokeRepeating ("spawn", 2.0f, 6.0f);
 				}
 
-				if (controller.getScore () >= 450 && controller.getScore () < 600 && !score400) {
+		if (controller.getScore () >= 450+scoreplus && controller.getScore () < 600+scoreplus && !score400) {
 						score400 = true;
 						InvokeRepeating ("spawn", 1.0f, 6.0f);
 				}
 
-				if (controller.getScore () >= 800 && controller.getScore () < 400 && !score600) {
+		if (controller.getScore () >= 800+scoreplus && controller.getScore () < 400+scoreplus && !score600) {
 						score600 = true;
 						InvokeRepeating ("spawn", 2.0f, 6.0f);
 				}
 
-				if (controller.getScore () >= 1000 && !score1000 && !victiniSpawned) {
+		if (controller.getScore () >= 1000+scoreplus && !score1000 && !victiniSpawned) {
 						CancelInvoke ();
 						if (enemyFolder.transform.childCount == 0) {
 								t = ((GameObject)Instantiate (victini, new Vector3 (0, 0, 22), VictiniSpawn.rotation)).transform;
