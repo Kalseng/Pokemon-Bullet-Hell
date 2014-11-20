@@ -32,8 +32,6 @@ public class victiniPatterns : MonoBehaviour {
 	private bool flamethrowerPart1Active;
 	private Transform thisTransform;
 
-	public float smoothTime;
-
 	// Use this for initialization
 	void Start () {
 		thisTransform = this.transform;
@@ -59,10 +57,11 @@ public class victiniPatterns : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-				if (health > 750) {
+				if (health >= 667) {
+			Debug.Log ("Condition 1 activated");
 						searingShot ();
 				}
-				if (health <= 750 && health >= 500) {
+				if (health <= 666 && health >= 334) {
 						Debug.Log ("Condition 2 activated");
 						part2active = false;
 						if (vCreatePart1Active == false) {
@@ -71,18 +70,13 @@ public class victiniPatterns : MonoBehaviour {
 								vCreate ();
 						}
 				}
-				if (health < 500 && health >= 250) {
+				if (health <= 333) {
 						Debug.Log ("Condition 3 activated");
 						if (flamethrowerPart1Active == false) {
 								CancelInvoke ();
 								controller.ClearBullets (bulletFolder.transform);
 								flamethrower ();
 						}
-				}
-				if (health < 250) {
-						Debug.Log ("Condition 4 actiated");
-						CancelInvoke ();
-		
 				}
 		}
 
@@ -193,7 +187,6 @@ public class victiniPatterns : MonoBehaviour {
 						t.parent = explosionFolder.transform;
 						health--;
 						if (health <= 0) {
-								Destroy (this.gameObject);
 								if (!objectDestroyed) {
 										controller.AddScore (pointsWorth);
 										Instantiate (explosion, transform.position, transform.rotation);
