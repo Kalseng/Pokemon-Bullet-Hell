@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Text;
-using System.IO;  
+using System.IO;
+using System;  
 
 public class LogicOfTheGame : MonoBehaviour {
 
@@ -211,8 +212,8 @@ public class LogicOfTheGame : MonoBehaviour {
 						// In this example, I split it into arguments based on comma
 						// deliniators, then send that array to DoStuff()
 						highscores = line.Split(',');
-						if (highscores.Length > 0)
-							DoStuff(entries);
+						//if (highscores.Length > 0)
+							//DoStuff(entries);
 					}
 				}
 				while (line != null);

@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\HighScores.cs" />
      <Compile Include="Assets\Prefabs\Done_Scripts\Done_BGScroller.cs" />
      <Compile Include="Assets\Prefabs\Done_Scripts\Done_DestroyByBoundary.cs" />
      <Compile Include="Assets\Prefabs\Done_Scripts\Done_DestroyByTime.cs" />
