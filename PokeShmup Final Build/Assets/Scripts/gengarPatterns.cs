@@ -123,12 +123,14 @@ public class gengarPatterns : MonoBehaviour {
 			health--;
 			Debug.Log ("health decreased to: " + health);
 			if (health <= 0) {
+
 				Destroy (this.gameObject);
 				if (!objectDestroyed) {
 					controller.AddScore (pointsWorth);
 					Instantiate (explosion, transform.position, transform.rotation);
 					objectDestroyed = true;
 				}
+				controller.setWin();
 			}
 			
 		}

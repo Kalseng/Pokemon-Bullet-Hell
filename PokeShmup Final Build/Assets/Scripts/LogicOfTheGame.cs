@@ -26,7 +26,7 @@ public class LogicOfTheGame : MonoBehaviour {
 	public GameObject fader, fader2;
 	public float speed;
 	private Color faderColor, faderColor2;
-	
+	private bool gameWon;
 	private string[] highscores;
 	private int[] hsNumbers;
 	private string[] names;
@@ -41,6 +41,7 @@ public class LogicOfTheGame : MonoBehaviour {
 		Load ("highscores.txt");
 		lowestHS = 0;
 		count = 0;
+		gameWon = false;
 
 		//Load ("highscores.txt");
 
@@ -101,10 +102,22 @@ public class LogicOfTheGame : MonoBehaviour {
 								if (Input.GetKeyDown (KeyCode.JoystickButton9) 
 										|| Input.GetKeyDown (KeyCode.JoystickButton8) 
 										|| Input.GetKeyDown ("r")) {
-										Application.LoadLevel ("Level 1");
+										Application.LoadLevel ("MainMenu");
 								}
 						}
-				}				
+				}	
+
+			if (Application.loadedLevelName == "Level 2") {
+			
+				if (gameOver && faderColor.a + speed >= 0 && faderColor.a + speed <= 255) {
+					faderColor.a += speed;
+					fader.renderer.material.SetColor ("_Color", faderColor);}
+			
+				if ((fader.renderer.material.GetColor ("_Color").a + speed) >= 1.0f) {
+					Application.LoadLevel ("GameOver");
+				}
+				
+		}
 				
 				//Marcus: THAT'S ALL OF IT. IDK YOU COULD PROBABLY
 				//OPTIMIZE IT BETTER BUT THAT'S WHAT I HAD.
@@ -292,13 +305,22 @@ public class LogicOfTheGame : MonoBehaviour {
 				nums=nums+hsNumbers[i]+",";
 				people=people+names[i]+",";
 			}
-			if(i<4 && hsNumbers[i]<score && !added) {
+
+			if(i<3 && hsNumbers[i]<score && !added) {
 				nums=nums+score+",";
 				people=people+name+",";
 				nums=nums+hsNumbers[i]+",";
 				people=people+names[i]+",";
 				added=true;
 			}
+			if(i==3 && hsNumbers[i]<score && !added) {
+				nums=nums+score+",";
+				people=people+name+",";
+				nums=nums+hsNumbers[i]+",";
+				people=people+names[i]+",";
+				added=true;
+			}
+
 
 
 			if(i==4 && hsNumbers[i]<score && !added) {
@@ -320,4 +342,13 @@ public class LogicOfTheGame : MonoBehaviour {
 	
 	}
 
+
+	public void setWin(){
+		gameWon = true;
+		gameOver = true;
+	}
+
+	public bool didYouWin(){
+				return gameWon;
+		}
 }
