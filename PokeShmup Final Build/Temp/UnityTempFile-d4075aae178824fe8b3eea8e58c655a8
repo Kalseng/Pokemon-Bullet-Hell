@@ -39,6 +39,7 @@
 -define:ENABLE_PROFILER
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_OSX
+'Assets/EnterName.cs'
 'Assets/HighScores.cs'
 'Assets/Prefabs/Done_Scripts/Done_BGScroller.cs'
 'Assets/Prefabs/Done_Scripts/Done_DestroyByBoundary.cs'

@@ -8,15 +8,19 @@ using System.Text;
 
 public class HighScores : MonoBehaviour {
 	public GUIText scores;
-	private int[] highscores;
+	public GUIText nameList;
+	private string[] highscores;
+	private int[] hsNumbers;
 	private string[] names;
-	private string hs;
-	private bool name;
+	private string hs, namesString;
+	private int count;
 
 	void Start() {
-		name = false;
+		count = 0;
+		hsNumbers = new int[5];
 		Load ("highscores.txt");
 		scores.text = hs;
+		nameList.text = namesString;
 	
 	}
 	void OnGUI() {
@@ -54,9 +58,14 @@ public class HighScores : MonoBehaviour {
 						// Do whatever you need to do with the text line, it's a string now
 						// In this example, I split it into arguments based on comma
 						// deliniators, then send that array to DoStuff()
-						if(!name){
+						if(count<1){
 						highscores = line.Split(',');
-							names=true;
+							foreach(var item in highscores)
+							{
+								Debug.LogError(item.ToString());
+							}
+							count=count+1;
+							Debug.LogError("Count is: "+count);
 						}
 						else{
 							names=line.Split(',');
@@ -65,14 +74,21 @@ public class HighScores : MonoBehaviour {
 					}
 				}
 				while (line != null);
-				int i=0;
-				while(highscores[i]!=null){
-					Convert.ToInt32(highscores[i]);
+				Debug.LogError("The array length is: "+highscores.Length);
+				for(int i=0; i<highscores.Length; i++){
+					Debug.LogError("In the while loop. i= "+highscores[i]);
+					hsNumbers[i]=int.Parse(highscores[i]);
 					hs=hs+highscores[i]+"\n";
-					i++;
+					Debug.LogError("In the while loop. hs= "+hs);
+					namesString=namesString+names[i]+"\n";
+
 				}
 				// Done reading, close the reader and return true to broadcast success    
 				theReader.Close();
+				foreach(var item in hsNumbers)
+				{
+					Debug.LogError(item.ToString());
+				}
 				return true;
 			}
 		}
@@ -81,6 +97,7 @@ public class HighScores : MonoBehaviour {
 		// on what didn't work
 		catch (Exception e)
 		{
+
 			Console.WriteLine("{0}\n", e.Message);
 			return false;
 		}

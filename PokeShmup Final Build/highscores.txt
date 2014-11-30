@@ -1,1 +1,2 @@
-Samantha 540,Jake 670,Marcus 897,Ashley 788
+540,760,890,990,780
+Marcus,Samantha,Joe,Ashley,Dave

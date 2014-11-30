@@ -26,13 +26,23 @@ public class LogicOfTheGame : MonoBehaviour {
 	public GameObject fader, fader2;
 	public float speed;
 	private Color faderColor, faderColor2;
+	
 	private string[] highscores;
-
+	private int[] hsNumbers;
+	private string[] names;
+	private string hs, namesString;
+	private int count;
+	private int lowestHS;
 
 	// Use this for initialization
 
 
 	void Start () {
+
+		lowestHS = 0;
+		count = 0;
+		hsNumbers = new int[5];
+		//Load ("highscores.txt");
 
 		if (Application.loadedLevelName == "Level 1") {
 						powerUp = 0.0f;
@@ -190,9 +200,11 @@ public class LogicOfTheGame : MonoBehaviour {
 		try
 		{
 			string line;
+			Debug.LogError("Got to the load");
 			// Create a new StreamReader, tell it which file to read and what encoding the file
 			// was saved as
-			StreamReader theReader = new StreamReader(fileName, Encoding.Default);
+			StreamReader theReader = new StreamReader(fileName, true);
+			Debug.LogError("Loaded the stuff");
 			
 			// Immediately clean up the reader after this block of code is done.
 			// You generally use the "using" statement for potentially memory-intensive objects
@@ -205,21 +217,45 @@ public class LogicOfTheGame : MonoBehaviour {
 				do
 				{
 					line = theReader.ReadLine();
-					
+					Debug.LogError(line);
 					if (line != null)
 					{
 						// Do whatever you need to do with the text line, it's a string now
 						// In this example, I split it into arguments based on comma
 						// deliniators, then send that array to DoStuff()
-						highscores = line.Split(',');
-						//if (highscores.Length > 0)
-							//DoStuff(entries);
+						if(count<1){
+							highscores = line.Split(',');
+							foreach(var item in highscores)
+							{
+								Debug.LogError(item.ToString());
+							}
+							count=count+1;
+							Debug.LogError("Count is: "+count);
+						}
+						else{
+							names=line.Split(',');
+							
+						}
 					}
 				}
 				while (line != null);
-				
+				Debug.LogError("The array length is: "+highscores.Length);
+				for(int i=0; i<highscores.Length; i++){
+					Debug.LogError("In the while loop. i= "+highscores[i]);
+					hsNumbers[i]=int.Parse(highscores[i]);
+					if(lowestHS==0 || lowestHS>hsNumbers[i])
+						lowestHS=hsNumbers[i];
+					hs=hs+highscores[i]+"\n";
+					Debug.LogError("In the while loop. hs= "+hs);
+					namesString=namesString+names[i]+"\n";
+					
+				}
 				// Done reading, close the reader and return true to broadcast success    
 				theReader.Close();
+				foreach(var item in hsNumbers)
+				{
+					Debug.LogError(item.ToString());
+				}
 				return true;
 			}
 		}
@@ -228,11 +264,23 @@ public class LogicOfTheGame : MonoBehaviour {
 		// on what didn't work
 		catch (Exception e)
 		{
+			
 			Console.WriteLine("{0}\n", e.Message);
 			return false;
 		}
+		
 	}
 
 
+	public int getLowScore(){
+		return lowestHS;
+
+	}
+
+
+	public bool addNewHighScore(String name){
+		return true;
+	
+	}
 
 }
