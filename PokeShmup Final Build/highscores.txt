@@ -1,2 +1,2 @@
-540,760,890,990,780
+890,750,630,320,110
 Marcus,Samantha,Joe,Ashley,Dave

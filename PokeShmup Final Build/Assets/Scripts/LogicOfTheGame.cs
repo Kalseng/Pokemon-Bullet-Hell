@@ -51,7 +51,7 @@ public class LogicOfTheGame : MonoBehaviour {
 				}
 		bullets = GameObject.Find ("Bullets");
 				if (lives == 0) {
-						lives = 50;
+						lives = 1;
 				}gameOver = false;
 		level1Over = false;    
 				scoreText.text = "Score: " + score;
@@ -77,7 +77,7 @@ public class LogicOfTheGame : MonoBehaviour {
 			
 						if (gameOver && faderColor.a + speed >= 0 && faderColor.a + speed <= 255) {
 								faderColor.a += speed;
-								fader.renderer.material.SetColor ("_Color", faderColor2);}
+								fader.renderer.material.SetColor ("_Color", faderColor);}
 						if (level1Over && faderColor2.a + speed >= 0 && faderColor2.a + speed <= 255) {
 								faderColor2.a += speed;
 								fader2.renderer.material.SetColor ("_Color", faderColor2);}
@@ -136,6 +136,7 @@ public class LogicOfTheGame : MonoBehaviour {
 	}
 
 	public bool LoseLife(){
+		Debug.LogError ("Lives equals: " + lives);
 				if (getPowerup () > 1.0f) {
 						changePowerup (-1.0f);
 						Debug.Log ("PowerUp lost");
@@ -279,6 +280,27 @@ public class LogicOfTheGame : MonoBehaviour {
 
 
 	public bool addNewHighScore(String name){
+		string[] lines=new string[1];
+		string nums = "";
+		string people = "";
+		for (int i=0; i<hsNumbers.Length-1; i++) {
+		if(hsNumbers[i]>score){
+				nums=nums+hsNumbers[i]+",";
+				people=people+names[i]+",";
+			}
+			else{
+				nums=nums+score+",";
+				people=people+name+",";
+				nums=nums+hsNumbers[i]+",";
+				people=people+names[i]+",";
+			
+			}
+		
+		}
+		lines [0] = nums;
+		lines [1] = people;
+		System.IO.File.WriteAllLines("highscores.txt", lines);
+		
 		return true;
 	
 	}
