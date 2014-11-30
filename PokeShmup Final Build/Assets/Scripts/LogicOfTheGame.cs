@@ -38,10 +38,10 @@ public class LogicOfTheGame : MonoBehaviour {
 
 
 	void Start () {
-
+		Load ("highscores.txt");
 		lowestHS = 0;
 		count = 0;
-		hsNumbers = new int[5];
+
 		//Load ("highscores.txt");
 
 		if (Application.loadedLevelName == "Level 1") {
@@ -226,6 +226,7 @@ public class LogicOfTheGame : MonoBehaviour {
 						// deliniators, then send that array to DoStuff()
 						if(count<1){
 							highscores = line.Split(',');
+							hsNumbers=new int[highscores.Length];
 							foreach(var item in highscores)
 							{
 								Debug.LogError(item.ToString());
@@ -244,8 +245,8 @@ public class LogicOfTheGame : MonoBehaviour {
 				for(int i=0; i<highscores.Length; i++){
 					Debug.LogError("In the while loop. i= "+highscores[i]);
 					hsNumbers[i]=int.Parse(highscores[i]);
-					if(lowestHS==0 || lowestHS>hsNumbers[i])
-						lowestHS=hsNumbers[i];
+					//if(lowestHS==0 || lowestHS>hsNumbers[i])
+					//	lowestHS=hsNumbers[i];
 					hs=hs+highscores[i]+"\n";
 					Debug.LogError("In the while loop. hs= "+hs);
 					namesString=namesString+names[i]+"\n";
@@ -280,23 +281,37 @@ public class LogicOfTheGame : MonoBehaviour {
 
 
 	public bool addNewHighScore(String name){
-		string[] lines=new string[1];
+		string[] lines=new string[2];
 		string nums = "";
 		string people = "";
-		for (int i=0; i<hsNumbers.Length-1; i++) {
-		if(hsNumbers[i]>score){
+		bool added = false;
+		Debug.LogError ("Adding person's HS: " + name);
+		for (int i=0; i<hsNumbers.Length; i=i+1) {
+			Debug.LogError("Arr length: "+hsNumbers.Length);
+		if(i<4 && hsNumbers[i]>score){
 				nums=nums+hsNumbers[i]+",";
 				people=people+names[i]+",";
 			}
-			else{
+			if(i<4 && hsNumbers[i]<score && !added) {
 				nums=nums+score+",";
 				people=people+name+",";
 				nums=nums+hsNumbers[i]+",";
 				people=people+names[i]+",";
-			
+				added=true;
 			}
-		
-		}
+
+
+			if(i==4 && hsNumbers[i]<score && !added) {
+				nums=nums+score;
+				people=people+name;
+				added=true;
+			}
+				
+
+				Debug.LogError(nums+" "+people);
+	
+			
+	}
 		lines [0] = nums;
 		lines [1] = people;
 		System.IO.File.WriteAllLines("highscores.txt", lines);
