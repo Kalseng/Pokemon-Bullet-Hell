@@ -94,6 +94,7 @@
      <None Include="Assets\Models\Blastoise\HELP AND README.txt" />
      <None Include="Assets\Models\Lucario\HELP AND README.txt" />
      <None Include="Assets\Models\Togekiss\HELP AND README.txt" />
+     <None Include="Assets\highscores.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
