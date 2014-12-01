@@ -79,6 +79,7 @@ public class voltorbSpawner : MonoBehaviour {
 
 				if (victiniSpawned && enemyFolder.transform.childCount == 0) {
 						win.text = ("YOU'VE WON!");
+						controller.setWin();
 				}
 		}
 

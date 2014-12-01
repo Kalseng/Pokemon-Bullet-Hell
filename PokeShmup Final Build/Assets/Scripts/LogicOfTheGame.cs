@@ -15,7 +15,8 @@ public class LogicOfTheGame : MonoBehaviour {
 	public static int score;
 	public static int lives;
 	public static float powerUp;
-
+	private static int lowestHS;
+	private static bool gameWon;
 	private static bool gameOver, level1Over;
 
 	private GameObject bullets;
@@ -26,33 +27,32 @@ public class LogicOfTheGame : MonoBehaviour {
 	public GameObject fader, fader2;
 	public float speed;
 	private Color faderColor, faderColor2;
-	private bool gameWon;
 	private string[] highscores;
 	private int[] hsNumbers;
 	private string[] names;
 	private string hs, namesString;
 	private int count;
-	private int lowestHS;
+
 
 	// Use this for initialization
 
 
 	void Start () {
 		Load ("highscores.txt");
-		lowestHS = 0;
 		count = 0;
-		gameWon = false;
 
 		//Load ("highscores.txt");
 
 		if (Application.loadedLevelName == "Level 1") {
 						powerUp = 0.0f;
-						
+						lowestHS=0;
 						score = 0;
+						lives=10;
+						gameWon=false;
 				}
 		bullets = GameObject.Find ("Bullets");
 				if (lives == 0) {
-						lives = 1;
+						lives = 10;
 				}gameOver = false;
 		level1Over = false;    
 				scoreText.text = "Score: " + score;
@@ -214,11 +214,11 @@ public class LogicOfTheGame : MonoBehaviour {
 		try
 		{
 			string line;
-			Debug.LogError("Got to the load");
+
 			// Create a new StreamReader, tell it which file to read and what encoding the file
 			// was saved as
 			StreamReader theReader = new StreamReader(fileName, true);
-			Debug.LogError("Loaded the stuff");
+
 			
 			// Immediately clean up the reader after this block of code is done.
 			// You generally use the "using" statement for potentially memory-intensive objects
@@ -231,7 +231,7 @@ public class LogicOfTheGame : MonoBehaviour {
 				do
 				{
 					line = theReader.ReadLine();
-					Debug.LogError(line);
+					//Debug.LogError(line);
 					if (line != null)
 					{
 						// Do whatever you need to do with the text line, it's a string now
@@ -240,12 +240,9 @@ public class LogicOfTheGame : MonoBehaviour {
 						if(count<1){
 							highscores = line.Split(',');
 							hsNumbers=new int[highscores.Length];
-							foreach(var item in highscores)
-							{
-								Debug.LogError(item.ToString());
-							}
+
 							count=count+1;
-							Debug.LogError("Count is: "+count);
+							//Debug.LogError("Count is: "+count);
 						}
 						else{
 							names=line.Split(',');
@@ -254,23 +251,23 @@ public class LogicOfTheGame : MonoBehaviour {
 					}
 				}
 				while (line != null);
-				Debug.LogError("The array length is: "+highscores.Length);
+				//Debug.LogError("The array length is: "+highscores.Length);
 				for(int i=0; i<highscores.Length; i++){
-					Debug.LogError("In the while loop. i= "+highscores[i]);
+					//Debug.LogError("In the while loop. i= "+highscores[i]);
 					hsNumbers[i]=int.Parse(highscores[i]);
-					//if(lowestHS==0 || lowestHS>hsNumbers[i])
-					//	lowestHS=hsNumbers[i];
+					if(lowestHS==0 || lowestHS>hsNumbers[i]){
+						lowestHS=hsNumbers[4];
+
+					}
 					hs=hs+highscores[i]+"\n";
-					Debug.LogError("In the while loop. hs= "+hs);
+					//Debug.LogError("In the while loop. hs= "+hs);
 					namesString=namesString+names[i]+"\n";
 					
 				}
+				Debug.LogError("LowestScore is: "+lowestHS);
 				// Done reading, close the reader and return true to broadcast success    
 				theReader.Close();
-				foreach(var item in hsNumbers)
-				{
-					Debug.LogError(item.ToString());
-				}
+
 				return true;
 			}
 		}
@@ -298,46 +295,67 @@ public class LogicOfTheGame : MonoBehaviour {
 		string nums = "";
 		string people = "";
 		bool added = false;
+		int total = 0;
 		Debug.LogError ("Adding person's HS: " + name);
-		for (int i=0; i<hsNumbers.Length; i=i+1) {
-			Debug.LogError("Arr length: "+hsNumbers.Length);
-		if(i<4 && hsNumbers[i]>score){
-				nums=nums+hsNumbers[i]+",";
-				people=people+names[i]+",";
-			}
-
-			if(i<3 && hsNumbers[i]<score && !added) {
-				nums=nums+score+",";
-				people=people+name+",";
-				nums=nums+hsNumbers[i]+",";
-				people=people+names[i]+",";
-				added=true;
-			}
-			if(i==3 && hsNumbers[i]<score && !added) {
-				nums=nums+score+",";
-				people=people+name+",";
-				nums=nums+hsNumbers[i]+",";
-				people=people+names[i]+",";
-				added=true;
-			}
-
-
-
-			if(i==4 && hsNumbers[i]<score && !added) {
+		for (int i=0; i<5; i=i+1) {
+			Debug.LogError("Number in array is: "+hsNumbers[i]);
+			if(score>hsNumbers[i] && !added) {
 				nums=nums+score;
 				people=people+name;
+				i--;
 				added=true;
+				total++;
 			}
-				
-
-				Debug.LogError(nums+" "+people);
+			else{
+				nums=nums+hsNumbers[i];
+				people=people+names[i];
+				total++;
 	
+			}
+
+			if(!(i+1==5)){
+				nums=nums+",";
+				people=people+",";
+			}
+			if(total==5)
+				i=5;
+//			if(i<hsNumbers.Length && hsNumbers[i]>score){
+//				nums=nums+hsNumbers[i]+",";
+//				people=people+names[i]+",";
+//			}
+//
+//			if(i<hsNumbers.Length-2 && hsNumbers[i]<score && !added) {
+//				nums=nums+score+",";
+//				people=people+name+",";
+//				nums=nums+hsNumbers[i]+",";
+//				people=people+names[i]+",";
+//				added=true;
+//			}
+//			if(i==hsNumbers.Length-2 && hsNumbers[i]<score && !added) {
+//				nums=nums+score+",";
+//				people=people+name+",";
+//				nums=nums+hsNumbers[i]+",";
+//				people=people+names[i]+",";
+//				added=true;
+//			}
+//
+//
+//
+//			if(i==hsNumbers.Length-1 && hsNumbers[i]<score && !added) {
+//				nums=nums+score;
+//				people=people+name;
+//				added=true;
+//			}
+//				
+//
+//				Debug.LogError(nums+" "+people);
+//	
 			
 	}
 		lines [0] = nums;
 		lines [1] = people;
 		System.IO.File.WriteAllLines("highscores.txt", lines);
-		
+		Load ("highscores.txt");
 		return true;
 	
 	}
@@ -349,6 +367,6 @@ public class LogicOfTheGame : MonoBehaviour {
 	}
 
 	public bool didYouWin(){
-				return gameWon;
-		}
+		return gameWon;
+	}
 }

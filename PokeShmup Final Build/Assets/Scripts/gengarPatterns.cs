@@ -16,7 +16,7 @@ public class gengarPatterns : MonoBehaviour {
 	private LogicOfTheGame controller;
 	
 	private GameObject bulletFolder, explosionFolder;
-	private int health = 1500;
+	public int health;
 	
 	//For searingShot
 	
@@ -127,10 +127,12 @@ public class gengarPatterns : MonoBehaviour {
 				Destroy (this.gameObject);
 				if (!objectDestroyed) {
 					controller.AddScore (pointsWorth);
+					controller.setWin();
 					Instantiate (explosion, transform.position, transform.rotation);
 					objectDestroyed = true;
 				}
-				controller.setWin();
+
+
 			}
 			
 		}
